@@ -1,0 +1,47 @@
+🚀 QUICK START GUIDE - Quicksort Project
+
+📋 REQUIREMENTS:
+- Python 3.7 or higher
+- Git (for GitHub)
+- Terminal/Command Prompt
+
+🛠️ INSTALLATION:
+1. Open terminal/command prompt
+2. Navigate to project folder:
+   cd quicksort-project
+3. Install dependencies:
+   pip install -r requirements.txt
+
+🎯 RUNNING THE PROJECT:
+
+1. Basic Usage:
+   python -c "from src.quicksort import quicksort; print(quicksort([3,1,4,1,5]))"
+
+2. Run Tests:
+   python -m pytest tests/ -v
+
+3. Run Benchmarks:
+   python benchmarks/performance_test.py
+
+4. Demo Script:
+   python -c "
+   from src.quicksort import quicksort
+   arr = [64, 34, 25, 12, 22, 11, 90]
+   print('Original:', arr)
+   print('Sorted:', quicksort(arr))
+   "
+
+📊 EXAMPLES:
+- Sort numbers: quicksort([3, 1, 4, 1, 5])
+- In-place: quicksort_inplace([3, 1, 4, 1, 5])
+- With key: quicksort(['banana', 'apple', 'cherry'], key=len)
+
+🌐 GITHUB SETUP:
+1. Create repository on GitHub
+2. git init
+3. git add .
+4. git commit -m "Initial commit"
+5. git remote add origin https://github.com/YOUR_USERNAME/quicksort-project.git
+6. git push -u origin main
+
+✅ NO ADDITIONAL SETUP REQUIRED!

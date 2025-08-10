@@ -50,12 +50,22 @@ def quicksort(arr: List[Any], key: Callable[[Any], Any] = None, reverse: bool = 
     if len(arr) <= 1:
         return arr[:]
     
-    # Use the last element as pivot (simple approach)
-    pivot = arr[-1]
+    # Use random pivot to avoid worst-case scenarios
+    pivot_index = random.randint(0, len(arr) - 1)
+    pivot = arr[pivot_index]
     
-    # Partition the array
-    left = [x for x in arr[:-1] if _compare(x, pivot, key) <= 0]
-    right = [x for x in arr[:-1] if _compare(x, pivot, key) > 0]
+    # Create new array without pivot element
+    remaining = arr[:pivot_index] + arr[pivot_index + 1:]
+    
+    # Partition the array based on reverse flag
+    if reverse:
+        # For reverse=True, elements > pivot go left, <= pivot go right
+        left = [x for x in remaining if _compare(x, pivot, key) > 0]
+        right = [x for x in remaining if _compare(x, pivot, key) <= 0]
+    else:
+        # For reverse=False, elements <= pivot go left, > pivot go right
+        left = [x for x in remaining if _compare(x, pivot, key) <= 0]
+        right = [x for x in remaining if _compare(x, pivot, key) > 0]
     
     # Recursively sort sub-arrays
     sorted_left = quicksort(left, key=key, reverse=reverse)
@@ -63,10 +73,6 @@ def quicksort(arr: List[Any], key: Callable[[Any], Any] = None, reverse: bool = 
     
     # Combine results
     result = sorted_left + [pivot] + sorted_right
-    
-    # Handle reverse ordering
-    if reverse:
-        result.reverse()
     
     return result
 
