@@ -209,5 +209,4 @@ This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.t
 
 - Inspired by classic algorithm textbooks
 - Built with modern Python best practices
-- Designed for both educational and production use
 
